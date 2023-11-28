@@ -23,10 +23,6 @@ public record Jugador(String nombre) {
             } else {
                 System.out.println("La posición está ocupada. Elige otra.");
                 // Volver a solicitar la entrada del usuario
-                System.out.println("Ingrese la fila para colocar la ficha (0-2):");
-                fila = scanner.nextInt();
-                System.out.println("Ingrese la columna para colocar la ficha (0-2):");
-                columna = scanner.nextInt();
             }
         }
     }

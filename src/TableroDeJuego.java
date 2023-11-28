@@ -2,12 +2,14 @@ public class TableroDeJuego {
     private final char[][] tablero;
     private final Jugador jugador1;
     private final Jugador jugador2;
+    private int turno;
 
     public TableroDeJuego(Jugador jugador1, Jugador jugador2) {
         this.tablero = new char[3][3];
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
         inicializarTablero();
+        this.turno = 0;
     }
 
     private void inicializarTablero() {
@@ -19,21 +21,6 @@ public class TableroDeJuego {
         }
     }
 
-    public void mostrarTablero() {
-        // Muestra el estado actual del tablero
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(tablero[i][j] + " ");
-                if (j < 2) {
-                    System.out.print("|"); // Línea divisoria horizontal entre columnas
-                }
-            }
-            System.out.println();
-            if (i < 2) {
-                System.out.println("---------"); // Línea divisoria vertical entre filas
-            }
-        }
-    }
     public boolean esCasillaVacia(int fila, int columna) {
         return tablero[fila][columna] == ' ';
     }
@@ -98,5 +85,30 @@ public class TableroDeJuego {
         }
 
         return false;
+    }
+
+    public Jugador getJugador1() {
+        return jugador1;
+    }
+
+    public void reiniciarTablero() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                tablero[i][j] = ' ';
+            }
+        }
+        turno = 0;
+    }
+
+    public Jugador getJugador2() {
+        return jugador2;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void incrementarTurno() {
+        turno++;
     }
 }
