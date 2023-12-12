@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public record Jugador(String nombre) {
-    private static final Scanner scanner;
+    private static Scanner scanner;
 
     static {
         scanner = new Scanner(System.in);
@@ -25,6 +25,10 @@ public record Jugador(String nombre) {
                 // Volver a solicitar la entrada del usuario
             }
         }
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }
 

@@ -1,13 +1,17 @@
 public class TableroDeJuego {
-    private final char[][] tablero;
-    private final Jugador jugador1;
-    private final Jugador jugador2;
+    private char[][] tablero;
+    private Jugador jugador1;
+    private Jugador jugador2;
+    private ContadorVictorias contadorJugador1;
+    private ContadorVictorias contadorJugador2;
     private int turno;
 
     public TableroDeJuego(Jugador jugador1, Jugador jugador2) {
         this.tablero = new char[3][3];
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
+        new ContadorVictorias(jugador1.getNombre());
+        new ContadorVictorias(jugador2.getNombre());
         inicializarTablero();
         this.turno = 0;
     }
